@@ -98,7 +98,7 @@ exports.getImage = onRequest(async (request, response) => {
         // get our storage bucket
         const bucket = storage.bucket();
         // grab requested file
-        const file = bucket.file(filePath);
+        const file = bucket.file(decodeURI(filePath));
         // get buffer of file
         const [fileContents] = await file.download();
 
